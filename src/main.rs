@@ -4,17 +4,35 @@ fn main() {
 
 const INVALID_NUMBER_INPUT_ERROR: &str = "Invalid input: number must be between 1 and 100";
 
+#[derive(Debug, PartialEq)]
+enum FizzBuzzResult {
+    Fizz,
+    Buzz,
+    FizzBuzz,
+    Number(u8),
+}
+
+impl std::fmt::Display for FizzBuzzResult {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            FizzBuzzResult::Fizz => write!(f, "Fizz"),
+            FizzBuzzResult::Buzz => write!(f, "Buzz"),
+            FizzBuzzResult::FizzBuzz => write!(f, "FizzBuzz"),
+            FizzBuzzResult::Number(n) => write!(f, "{}", n),
+        }
+    }
+}
+
 struct FizzBuzzChecker {}
 
 impl FizzBuzzChecker {
-    fn is_a_fizzbuzz(num: u8) -> Result<String, &'static str> {
+    fn is_a_fizzbuzz(num: u8) -> Result<FizzBuzzResult, &'static str> {
         match num {
             n if n == 0 || n > 100 => Err(INVALID_NUMBER_INPUT_ERROR),
-            n if n % 15 == 0 => Ok("FizzBuzz".to_string()),
-            n if n % 15 == 0 => Ok("FizzBuzz".to_string()),
-            n if n % 3 == 0 => Ok("Fizz".to_string()),
-            n if n % 5 == 0 => Ok("Buzz".to_string()),
-            _ => Ok(num.to_string()),
+            n if n % 15 == 0 => Ok(FizzBuzzResult::FizzBuzz),
+            n if n % 3 == 0 => Ok(FizzBuzzResult::Fizz),
+            n if n % 5 == 0 => Ok(FizzBuzzResult::Buzz),
+            _ => Ok(FizzBuzzResult::Number(num)),
         }
     }
 }
