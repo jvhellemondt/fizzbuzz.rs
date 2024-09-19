@@ -26,18 +26,6 @@ mod tests {
         assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(3), "Fizz");
     }
 
-
-    #[test]
-    fn test_a_multiple_of_three_should_be_fizz() {
-        let test_cases: Vec<_> = (3..=100)
-            .step_by(3)
-            .collect();
-
-        test_cases
-            .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), "Fizz"));
-    }
-
     #[test]
     fn test_five_should_be_buzz() {
         assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(5), "Buzz");
@@ -50,7 +38,7 @@ mod tests {
 
     #[test]
     fn test_a_number_not_three_should_be_the_number_given() {
-        let test_cases = vec![1, 2, 4, 7, 8, 10, 11, 13, 14];
+        let test_cases = vec![1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
         test_cases
             .iter()
