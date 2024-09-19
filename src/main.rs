@@ -30,4 +30,9 @@ mod tests {
             .iter()
             .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), num.to_string()));
     }
+
+    #[test]
+    fn test_five_should_be_buzz() {
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(5), "Buzz");
+    }
 }
