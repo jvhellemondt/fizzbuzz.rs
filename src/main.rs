@@ -23,12 +23,20 @@ mod tests {
     }
 
     #[test]
-    fn test_one_should_be_one() {
+    fn test_a_number_not_three_should_be_the_number_given() {
         assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(1), "1");
-    }
-
-    #[test]
-    fn test_two_should_be_two() {
         assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(2), "2");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(4), "4");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(5), "5");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(6), "6");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(7), "7");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(8), "8");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(9), "9");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(10), "10");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(11), "11");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(12), "12");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(13), "13");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(14), "14");
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(15), "15");
     }
 }
