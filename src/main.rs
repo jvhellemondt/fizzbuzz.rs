@@ -22,11 +22,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_three_should_be_fizz() {
-        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(3), "Fizz");
-    }
-
-    #[test]
     fn test_a_multiple_of_three_which_is_not_a_multiple_of_15_should_be_fizz() {
         let test_cases: Vec<_> = (3..=100)
             .step_by(3)
@@ -62,8 +57,11 @@ mod tests {
     }
 
     #[test]
-    fn test_a_number_not_three_should_be_the_number_given() {
-        let test_cases = vec![1, 2, 4, 7, 8, 11, 13, 14];
+    fn test_a_number_not_a_multiple_of_three_or_five_should_be_the_number_given() {
+        let test_cases: Vec<_> = (1..=100)
+            .step_by(1)
+            .filter(|&n| n % 3 != 0 && n % 5 != 0)
+            .collect();
 
         test_cases
             .iter()
