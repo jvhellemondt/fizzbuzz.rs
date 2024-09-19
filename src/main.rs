@@ -6,8 +6,8 @@ struct FizzBuzzChecker {}
 
 impl FizzBuzzChecker {
     fn is_a_fizzbuzz(num: u8) -> String {
-        if (num == 1) {
-            return 1.to_string();
+        if num != 3 {
+            return num.to_string();
         }
         "Fizz".to_string()
     }
