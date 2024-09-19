@@ -27,15 +27,10 @@ mod tests {
     }
 
     #[test]
-    fn test_five_should_be_buzz() {
-        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(5), "Buzz");
-    }
-
-    #[test]
     fn test_a_multiple_of_five_which_is_not_a_multiple_of_15_should_be_buzz() {
         let test_cases: Vec<_> = (5..=100)
-            .step_by(5) // Step by 5
-            .filter(|&n| n % 15 != 0) // Skip multiples of 15
+            .step_by(5)
+            .filter(|&n| n % 15 != 0)
             .collect();
 
         test_cases
