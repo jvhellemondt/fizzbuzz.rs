@@ -8,7 +8,7 @@ impl FizzBuzzChecker {
     fn is_a_fizzbuzz(num: u8) -> String {
         if num % 15 == 0 {
             return "FizzBuzz".to_string()
-        } else if num == 5 {
+        } else if num % 5 == 0 {
             return "Buzz".to_string()
         } else if num == 3 {
             return "Fizz".to_string()
@@ -56,7 +56,7 @@ mod tests {
 
     #[test]
     fn test_a_number_not_three_should_be_the_number_given() {
-        let test_cases = vec![1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+        let test_cases = vec![1, 2, 4, 6, 7, 8, 9, 11, 12, 13, 14];
 
         test_cases
             .iter()
