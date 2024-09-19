@@ -127,4 +127,13 @@ mod tests {
             .iter()
             .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num).is_ok(), true));
     }
+
+    #[test]
+    fn test_the_number_zero_and_above_hundred_are_not_allowed() {
+        let test_cases = vec![0, 101, 150, 255];
+
+        test_cases
+            .iter()
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Err("Invalid input: number must be between 1 and 100")));
+    }
 }
