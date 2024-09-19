@@ -5,12 +5,12 @@ fn main() {
 struct FizzBuzzChecker {}
 
 impl FizzBuzzChecker {
-    fn is_a_fizzbuzz(num: u8) -> String {
+    fn is_a_fizzbuzz(num: u8) -> Result<String, ()> {
         match num {
-            n if n % 15 == 0 => "FizzBuzz".to_string(),
-            n if n % 3 == 0 => "Fizz".to_string(),
-            n if n % 5 == 0 => "Buzz".to_string(),
-            _ => num.to_string(),
+            n if n % 15 == 0 => Ok("FizzBuzz".to_string()),
+            n if n % 3 == 0 => Ok("Fizz".to_string()),
+            n if n % 5 == 0 => Ok("Buzz".to_string()),
+            _ => Ok(num.to_string()),
         }
     }
 }
