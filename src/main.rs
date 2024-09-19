@@ -6,12 +6,12 @@ struct FizzBuzzChecker {}
 
 impl FizzBuzzChecker {
     fn is_a_fizzbuzz(num: u8) -> String {
-        if num == 3 {
-            return "Fizz".to_string()
+        if num % 15 == 0 {
+            return "FizzBuzz".to_string()
         } else if num == 5 {
             return "Buzz".to_string()
-        } else if num == 15 {
-            return "FizzBuzz".to_string()
+        } else if num == 3 {
+            return "Fizz".to_string()
         }
         num.to_string()
     }
