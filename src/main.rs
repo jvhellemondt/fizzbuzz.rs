@@ -18,4 +18,9 @@ mod tests {
     fn test_three_should_be_fizz() {
         assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(3), "Fizz");
     }
+
+    #[test]
+    fn test_one_should_be_one() {
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(1), "1");
+    }
 }
