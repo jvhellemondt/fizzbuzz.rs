@@ -37,6 +37,17 @@ mod tests {
     }
 
     #[test]
+    fn test_a_multiple_of_fifteen_should_be_fizzbuzz() {
+        let test_cases: Vec<_> = (15..=100)
+            .step_by(15)
+            .collect();
+
+        test_cases
+            .iter()
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), "FizzBuzz"));
+    }
+
+    #[test]
     fn test_a_number_not_three_should_be_the_number_given() {
         let test_cases = vec![1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
