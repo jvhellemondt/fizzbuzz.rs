@@ -26,4 +26,9 @@ mod tests {
     fn test_one_should_be_one() {
         assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(1), "1");
     }
+
+    #[test]
+    fn test_two_should_be_two() {
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(2), "2");
+    }
 }
