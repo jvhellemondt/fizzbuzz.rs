@@ -79,7 +79,7 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok("Fizz".to_string())));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok(FizzBuzzResult::Fizz)));
     }
 
     #[test]
@@ -92,7 +92,7 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok("Buzz".to_string())));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok(FizzBuzzResult::Buzz)));
     }
 
     #[test]
@@ -104,7 +104,7 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok("FizzBuzz".to_string())));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok(FizzBuzzResult::FizzBuzz)));
     }
 
     #[test]
@@ -117,7 +117,7 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok(num.to_string())));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok(FizzBuzzResult::Number(num))));
     }
 
     #[test]
@@ -139,5 +139,14 @@ mod tests {
         test_cases
             .iter()
             .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Err(INVALID_NUMBER_INPUT_ERROR)));
+    }
+
+    #[test]
+    fn test_fizzbuzz_enum_performance_win_over_string() {
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(3), Ok(FizzBuzzResult::Fizz));
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(7), Ok(FizzBuzzResult::Number(7)));
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(5), Ok(FizzBuzzResult::Buzz));
+        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(15), Ok(FizzBuzzResult::FizzBuzz));
+        assert!(FizzBuzzChecker::is_a_fizzbuzz(101).is_err());
     }
 }
