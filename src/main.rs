@@ -32,11 +32,6 @@ mod tests {
     }
 
     #[test]
-    fn test_fifteen_should_be_fizzbuzz() {
-        assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(15), "FizzBuzz");
-    }
-
-    #[test]
     fn test_a_multiple_of_fifteen_should_be_fizzbuzz() {
         let test_cases: Vec<_> = (15..=100)
             .step_by(15)
