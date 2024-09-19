@@ -2,6 +2,14 @@ fn main() {
     println!("Hello, world!");
 }
 
+struct FizzBuzzChecker {}
+
+impl FizzBuzzChecker {
+    fn is_a_fizzbuzz(_num: u8) -> String {
+        "Fizz".to_string()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
