@@ -75,7 +75,7 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), "Fizz"));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok("Fizz".to_string())));
     }
 
     #[test]
@@ -88,7 +88,7 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), "Buzz"));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok("Buzz".to_string())));
     }
 
     #[test]
@@ -100,7 +100,7 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), "FizzBuzz"));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok("FizzBuzz".to_string())));
     }
 
     #[test]
@@ -113,6 +113,18 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), num.to_string()));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Ok(num.to_string())));
+    }
+
+    #[test]
+    fn it_should_support_graceful_error_handling() {
+        let test_cases = TestCaseBuilder::new()
+            .with_step_by(1)
+            .with_range(1, 100)
+            .build();
+
+        test_cases
+            .iter()
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num).is_ok(), true));
     }
 }
