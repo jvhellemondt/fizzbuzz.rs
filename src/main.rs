@@ -12,17 +12,6 @@ enum FizzBuzzResult {
     Number(u8),
 }
 
-impl std::fmt::Display for FizzBuzzResult {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            FizzBuzzResult::Fizz => write!(f, "Fizz"),
-            FizzBuzzResult::Buzz => write!(f, "Buzz"),
-            FizzBuzzResult::FizzBuzz => write!(f, "FizzBuzz"),
-            FizzBuzzResult::Number(n) => write!(f, "{}", n),
-        }
-    }
-}
-
 struct FizzBuzzChecker {}
 
 impl FizzBuzzChecker {
