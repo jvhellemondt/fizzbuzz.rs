@@ -2,12 +2,14 @@ fn main() {
     println!("Hello, world!");
 }
 
+const INVALID_NUMBER_INPUT_ERROR: &str = "Invalid input: number must be between 1 and 100";
+
 struct FizzBuzzChecker {}
 
 impl FizzBuzzChecker {
     fn is_a_fizzbuzz(num: u8) -> Result<String, &'static str> {
         match num {
-            n if n == 0 || n > 100 => Err("Invalid input: number must be between 1 and 100"),
+            n if n == 0 || n > 100 => Err(INVALID_NUMBER_INPUT_ERROR),
             n if n % 15 == 0 => Ok("FizzBuzz".to_string()),
             n if n % 15 == 0 => Ok("FizzBuzz".to_string()),
             n if n % 3 == 0 => Ok("Fizz".to_string()),
@@ -136,6 +138,6 @@ mod tests {
 
         test_cases
             .iter()
-            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Err("Invalid input: number must be between 1 and 100")));
+            .for_each(|&num| assert_eq!(FizzBuzzChecker::is_a_fizzbuzz(num), Err(INVALID_NUMBER_INPUT_ERROR)));
     }
 }
